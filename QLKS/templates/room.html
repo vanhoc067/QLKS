@@ -1,0 +1,68 @@
+
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">DANH SACH PHÒNG</h1>
+
+    {% if err_msg %}
+    <div class="alert alert-danger">
+        {{ err_msg }}
+    </div>
+    {% endif %}
+
+    <!--<form method="post" enctype="multipart/form-data" action="/book_room">
+        <label >Chọn khách hàng</label>
+        <div class="form-floating mb-3 mt-3">
+            <select name="gender" id="gender" style="border: solid 2px; border-radius: 3px">
+                {% for rom in room  %}
+                    <option  value="1">{{ rom.id }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label >Các phòng đặt</label>
+        <div class="form-floating mb-3 mt-3">
+            <select name="gender" id="gender" style="border: solid 2px; border-radius: 3px">
+                <option  value="1">Nam (Male)</option>
+                <option value="2">Nữ (Female)</option>
+            </select>
+        </div>
+        <div class="formkit-outer" data-family="text" data-type="datetime-local" data-complete="true">
+          <div class="formkit-wrapper">
+            <label class="formkit-label" for="input_0">Ngày nhận phòng</label>
+            <div class="formkit-inner">
+              <input class="formkit-input" type="datetime-local" name="datetime-local_1" id="input_0" aria-describedby="help-input_0">
+            </div>
+          </div>
+        </div>
+        <div class="formkit-outer" data-family="text" data-type="datetime-local" data-complete="true">
+          <div class="formkit-wrapper">
+            <label class="formkit-label" for="input_0">Ngày trả phòng</label>
+            <div class="formkit-inner">
+              <input class="formkit-input" type="datetime-local" name="datetime-local_1" id="input_0" aria-describedby="help-input_0">
+            </div>
+          </div>
+        </div>
+
+    </form>-->
+{% for r in room %}
+    <div class="wrapper">
+        <h1>PHILIPPINES</h1>
+        <div class="image i1"><img src="{{ r.image }}" style="width: 100%" name="image" /></div>
+        <div class="details" style="margin-top: 5px"><h1><em>Boracay Island</em></h1>
+            <h2>Surfer's Home</h2>
+            <p>3 Days - 2 Nights</p></div>
+        <h1 class="text-danger">{{ "{:,.0f}".format(r.unit_rooms[0].unitPrice) }} VNĐ</h1>
+        <a href="/room_detail/{{r.id}}/{{current_user.customer.id}}" class="btn btn-primary">Xem chi tiết</a>
+
+    </div>
+{% endfor %}
+    <script>
+        function test(){
+        console.log("test")
+        }
+</script>
+
+
+</div>
+{% endblock %}

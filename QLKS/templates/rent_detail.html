@@ -1,0 +1,37 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">CHI TIẾT PHIẾU THUÊ PHÒNG</h1>
+    <div class="row">
+        <table border="1" class="score text-info" style="width:90%" id="customers">
+            <tr>
+                <th colspan="3">Tên người thuê: {{ r.customers[0] }}</th>
+
+                    <th colspan="2">Các phòng thuê: {%for i in r.rooms%} {{ i }} {% endfor %}</th>
+
+            </tr>
+            <tr>
+                <th colspan="3">Ngày nhận phòng: {{r.checkInDate}}</th>
+                <th colspan="2">Ngày trả phòng: {{r.checkOutDate}}</th>
+            </tr>
+            <tr>
+                <td>STT</td>
+                <td>Tên khách hàng</td>
+                <td>loại khách</td>
+                <td>CMNN</td>
+                <td>Số điện thoại</td>
+            </tr>
+            {% for cus in r.customers %}
+            <tr>
+                <td>1</td>
+                <td>{{ cus }}</td>
+                <td>{{ cus.cus_role }}</td>
+                <td>{{ cus.identity_card }}</td>
+                <td>{{ cus.user.phone }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

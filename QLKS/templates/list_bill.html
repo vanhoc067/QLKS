@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+{% if list %}
+    <h1 style="margin-bottom: 20px;color: #2b6edd;font-weight: bold; text-center" >Danh sách hóa đơn</h1>
+    <form method="get">
+        <input style="color: black" type="number" name="order_id" placeholder="Nhập id..." value="{{ request.args.get('order_id') if request.args.get('order_id')}}">
+        <input type="submit" class="btn-submit" style="margin-right: 10px; border-radius: 5px; padding: 0 5px;" >
+    </form>
+    <br><br>
+    <table border="1" class="score text-info" style="width:90%" id="customers">
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Mã nhân viên</th>
+            <th>Mã thuê phòng</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+        {% for l in list %}
+        <tr>
+            <td>{{l.id}}</td>
+            <td>{{l.user_id}}</td>
+            <td>{{l.rent_id}}</td>
+            <td>
+                {% if l.pay == false %}
+                Chưa thanh toán
+                {% else %}
+                <i style="color: green; font-size: 30px;" class="fa-solid fa-circle-check"></i>
+                {% endif %}
+            </td>
+            <td>
+                <a href="/order_detail/{{l.id}}" class="btn btn-danger">Xem chi tiết</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<h5 class="text-center text-danger">Không có phiếu thê phòng nào!</h5>
+{% endif %}
+</div>
+{% endblock %}

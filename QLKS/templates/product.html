@@ -1,0 +1,28 @@
+
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">MÓN ĂN CỦA CHÚNG TÔI</h1>
+    {% if pro %}
+    <div class="row">
+        {% for f in pro %}
+        <div class="col-md-3 col-sm-12" style="padding:1rem;">
+            <div class="card" style="text-align: center; background-color: #BECCCC; padding: 15px">
+                <img style="border-radius: 15px" class="card-img-top" src="{{ f.image }}" alt="{{ f.name }}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ f.name }}</h4>
+                    <p class="card-text">{{ "{:,.1f}".format(f.unitPrice) }} VNĐ</p>
+                    <a href="javascript:;" onclick="addToCart({{f.id}}, '{{f.name}}', {{f.unitPrice}})" class="btn btn-danger">Đặt hàng</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-success">Không có sản phẩm nào!</p>
+    {% endif %}
+
+
+</div>
+{% endblock %}

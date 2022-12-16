@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">CHI TIẾT PHIẾU ĐẶT PHÒNG</h1>
+    <div class="row">
+        <table border="1" class="score text-info" style="width:90%" id="customers">
+            <tr>
+                <th colspan="3">Tên người đặt: {{ br.customers[0].user.name }}</th>
+
+                    <th colspan="2">Các phòng đặt: {%for i in br.rooms%} {{ i }} {% endfor %}</th>
+
+            </tr>
+            <tr>
+                <th colspan="3">Ngày nhận phòng: {{br.checkInDate}}</th>
+                <th colspan="2">Ngày trả phòng: {{br.checkOutDate}}</th>
+            </tr>
+            <tr>
+                <td>STT</td>
+                <td>Tên khách hàng</td>
+                <td>loại khách</td>
+                <td>CMNN</td>
+                <td>Số điện thoại</td>
+            </tr>
+            {% for cus in br.customers %}
+            <tr>
+                <td>1</td>
+                <td>{{ cus }}</td>
+                <td>{{ cus.cus_role }}</td>
+                <td>{{ cus.identity_card }}</td>
+                <td>{{ cus.user.phone }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="javascript:;" onclick="create_rent({{br.customers[0].id}}, {{br.rooms[0].id}}, '{{br.checkInDate}}', '{{br.checkOutDate}}', {{br.id}})" class="btn btn-danger">Lập phiếu thuê</a>
+    </div>
+</div>
+{% endblock %}

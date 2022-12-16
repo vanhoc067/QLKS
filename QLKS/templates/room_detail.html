@@ -1,0 +1,76 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">CHI TIẾT PHÒNG</h1>
+    {{li.active}}
+    <div class="row">
+        <div class="col-6" style="text-align: center; margin-top: 20px">
+            <img src="{{ ro.image }}" style="    width: 500px; border-radius: 10px; margin-bottom: 20px;" name="image" />
+            {% if li.id == null %}
+                <a href="javascript:;" style="width: 120px, height: 65px, paddingBottom: 60px"  onclick="like({{current_user.customer.id}}, {{ro.id}})">
+                    <i id="createLike1" style="font-size: 33px;" class="fa-solid fa-thumbs-up"></i>
+                </a>
+            {% endif %}
+            {% if li.active == 1 %}
+                <a href="javascript:;" style="width: 120px, height: 65px, paddingBottom: 60px"  onclick="update_like({{li.id}}, {{li.active}})">
+                    <i id="createLike2" style="font-size: 33px;" class="fa-solid fa-thumbs-up btnLike"></i>
+                </a>
+            {% endif %}
+            {% if li.active == 0 %}
+                <a href="javascript:;" style="width: 120px, height: 65px, paddingBottom: 60px"  onclick="update_like({{li.id}}, {{li.active}})">
+                    <i id="createLike3" style="font-size: 33px;" class="fa-solid fa-thumbs-up"></i>
+                </a>
+            {% endif %}
+            <rating initialRating={medicine.rating} onClick={rate}/>
+        </div>
+        <div class="col-6">
+            <div class="form-floating mb-3 mt-3">
+                <div class="form-group">
+                    {{ ro.description }}
+                </div>
+                <form>
+                    <div class="formkit-outer" data-family="text" data-type="datetime-local" data-complete="true">
+                      <div class="formkit-wrapper">
+                        <label class="formkit-label" for="checkInDate">Ngày nhận phòng</label>
+                        <div class="formkit-inner">
+                          <input class="formkit-input" type="datetime-local" id="checkInDate" aria-describedby="help-input_0">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="formkit-outer" data-family="text" data-type="datetime-local" data-complete="true">
+                      <div class="formkit-wrapper">
+                        <label class="formkit-label" for="checkOutDate">Ngày trả phòng</label>
+                        <div class="formkit-inner">
+                          <input class="formkit-input" type="datetime-local" id="checkOutDate" aria-describedby="help-input_0">
+                        </div>
+                      </div>
+                    </div>
+                    <a href="javascript:;" onclick="create_book_room({{current_user.customer.id}}, {{ro.id}})" class="btn btn-danger">Đặt phòng</a>
+                </form>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{% if li.active == True %}-->
+<!--<script>-->
+<!--    window.onload = function() {-->
+<!--        var color = document.getElementById("createLike")-->
+<!--        console.log("color: ", color)-->
+<!--        color.style.color = "blue"-->
+<!--        -->
+
+<!--    }-->
+<!--</script>-->
+<!--{% endif %}-->
+<style>
+    .btnLike{
+        color: blue;
+    }
+</style>
+<script>
+
+</script>
+{% endblock %}

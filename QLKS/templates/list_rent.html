@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+{% if list %}
+    <h1 style="margin-bottom: 20px;color: #2b6edd;font-weight: bold; text-center" >Danh sách thuê phòng</h1>
+    <form method="get">
+        <input style="color: black" type="number" name="rent_id" placeholder="Nhập id..." value="{{ request.args.get('rent_id') if request.args.get('rent_id')}}">
+        <input type="submit" class="btn-submit" style="margin-right: 10px; border-radius: 5px; padding: 0 5px;" >
+    </form>
+    <br><br>
+    <table border="1" class="score text-info" style="width:90%" id="customers">
+        <tr>
+            <th>Mã thuê phòng</th>
+            <th>Ngày thuê phòng</th>
+            <th>Ngày nhận phòng</th>
+            <th>Ngày trả phòng</th>
+            <th>Hóa đơn</th>
+            <th></th>
+        </tr>
+        {% for l in list %}
+        <tr>
+            <td>{{l.id}}</td>
+            <td>{{l.created_date}}</td>
+            <td>{{l.checkInDate}}</td>
+            <td>{{l.checkOutDate}}</td>
+            <td></td>
+            <td>
+                <a href="/rent_detail/{{l.id}}" class="btn btn-danger">Xem chi tiết</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<h5 class="text-center text-danger">Không có phiếu thê phòng nào!</h5>
+{% endif %}
+</div>
+{% endblock %}

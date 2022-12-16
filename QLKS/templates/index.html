@@ -1,0 +1,147 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="fh5co-hero">
+    <div class="fh5co-overlay"></div>
+    <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
+         style="background-image: url(static/images/banner.jpg);">
+        <div class="desc animate-box" style="z-index: 10000">
+            <h2>Travel Around The World.</h2>
+            <!-- <span>Lovely Crafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FREEHTML5.co</a></span> -->
+            <span><a class="btn btn-primary btn-lg" href="#">Get Started</a></span>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="fh5co-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Paris</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>New York</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>London</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <!-- END 3 row -->
+
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Amsterdam</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Australia</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-item-wrap">
+                <a class="fh5co-listing-item">
+                    <img src="static/images/hotel6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                         class="img-responsive">
+                    <div class="fh5co-listing-copy">
+                        <h2>Japan</h2>
+                        <span class="icon">
+									<i class="icon-chevron-right"></i>
+								</span>
+                    </div>
+                </a>
+            </div>
+            <!-- END 3 row -->
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="fh5co-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 fh5co-news">
+                <h3>News</h3>
+                <ul>
+                    <li>
+                        <a href="/products/1">
+                            <span class="fh5co-date">Sep. 10, 2016</span>
+                            <h3>Các loại bánh cao cấp!!</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/products/2">
+                            <span class="fh5co-date">Sep. 10, 2016</span>
+                            <h3>Bạn muốn ăn gì!</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/products/3">
+                            <span class="fh5co-date">Sep. 10, 2016</span>
+                            <h3>Nước giải khát</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 fh5co-testimonial">
+                <img src="static/images/hotel7.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                     class="img-responsive mb20">
+                <img src="static/images/hotel9.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
+                     class="img-responsive">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block comment%}
+<div id="nav-phan-hoi"></div>
+    {% include "comment.html"%}
+{%endblock%}

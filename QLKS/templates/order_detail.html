@@ -1,0 +1,69 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px">
+    <h1 class="text-center text-success">CHI TIẾT HÓA ĐƠN</h1>
+    <div class="row">
+        <table border="1" class="score text-info" style="width:90%" id="customers">
+            <tr>
+                <th colspan="3">Tên khách hàng: {{ rent.customers[0] }}</th>
+
+                    <th colspan="2">Phòng thuê: {%for i in rent.rooms%} {{ i }} {% endfor %}</th>
+
+            </tr>
+            <tr>
+                <th colspan="3">Ngày nhận phòng: {{rent.checkInDate}}</th>
+                <th colspan="2">Ngày trả phòng: {{rent.checkOutDate}}</th>
+            </tr>
+            <tr>
+                <td>STT</td>
+                <td>Tên sản phẩm</td>
+                <td>Mã sản phẩm</td>
+                <td>Số lượng</td>
+                <td>Thành tiền</td>
+            </tr>
+            {% for pro in r.products %}
+            <tr>
+                <td>1</td>
+                <td>{{ pro.name }}</td>
+                <td>{{ pro.id }}</td>
+                <td>1</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th colspan="2">Phí phụ thu: {{sur.surcharge}} (*hệ số)</th>
+                <th colspan="3">Thành tiền: {{ "{:,.0f}".format(r.totalPrice) }} VND</th>
+            </tr>
+            <tr>
+                <th colspan="5">Tổng tiền cần thanh toán: {{ "{:,.0f}".format(r.totalPrice * sur.surcharge) }} VND</th>
+            </tr>
+        </table>
+
+
+    </div>
+    {% if r.pay == True %}
+    <button class="pay-the-bill_paid" disabled >Đã thanh toán</button>
+    {% else %}
+    <div>
+        <a href="javascript:;" onclick="get_pay_url_momo({{r.id}}, {{r.totalPrice}}, window.location.href)" class="btn btn-danger btnPay">Thanh toán bằng Momo</a>
+        <a id="btnPayMomo" href="javascript:;" onclick="pay_the_bill({{r.id}})" class="btn btn-danger btnPay">Thanh toán tại quầy</a>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    window.onload = function() {
+        try {
+            var url = new URL(window.location.href);
+            var result = url.searchParams.get("resultCode")
+            if (result == "0") {
+                pay_the_bill({{r.id}})
+            }
+        } catch(err) {
+            console.log(err)
+        }
+
+    }
+</script>
+{% endblock %}

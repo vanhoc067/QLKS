@@ -1,0 +1,56 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} Trang admin {% endblock %}
+
+{% block body %}
+    {% if current_user.is_authenticated %}
+        <h1 style="text-align:center;">Thay đổi quy định</h1>
+
+<h2 style="text-align:left">Thay đổi quy định về phòng</h2>
+    <table border="1" class="score text-info" style="width:90% txt-center" id="customers" >
+            <tr>
+                <th>Loại phòng</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+            </tr>
+            <tr>
+                <td>normal</td>
+                <td>2</td>
+                <td>150.000 VND</td>
+            </tr>
+            <tr>
+                <td>vip</td>
+                <td>2</td>
+                <td>300.000 VND</td>
+            </tr>
+        </table>
+<br><br>
+
+<h2 style="text-align:left">Thay đổi quy định về số lượng và loại khách</h2>
+    <table border="1" class="score text-info" style="width:90% txt-center" id="customers1">
+            <tr>
+                <th>Số lượng khách tối đa</th>
+            </tr>
+            <tr>
+                <td>3</td>
+            </tr>
+        </table>
+<br><br>
+
+<h2 style="text-align:left">Thay đổi quy định về phụ thu</h2>
+    <table border="1" class="score text-info" style="width:90% txt-center" id="customers2">
+            <tr>
+                <th>Có khách nước ngoài</th>
+                <th>Số lượng 3 khách</th>
+                <th>Cả hai</th>
+            </tr>
+            <tr>
+                <td>150% (*hệ số)</td>
+                <td>125% (*hệ số)</td>
+                <td>175% (*hệ số)</td>
+            </tr>
+        </table>
+    {% else %}
+        {% include 'admin/login.html' %}
+    {% endif %}
+{% endblock %}
